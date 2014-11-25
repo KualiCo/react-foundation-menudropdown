@@ -1,0 +1,17 @@
+{
+  "name": "react-foundation-menudropdown",
+  "version": "1.0.0",
+  "description": "A menu dropdown",
+  "main": "./dist/menu-dropdown.js",
+  "scripts": {
+    "prepublish": "jsx --harmony -x jsx src dist && cp src/*.js dist/"
+  },
+  "author": "Dallin Osmun",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.12.1"
+  },
+  "devDependencies": {
+    "react-tools": "^0.12.1"
+  }
+}
