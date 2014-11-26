@@ -1,5 +1,6 @@
 var React = require('react');
 var DropdownStateMixin = require('./dropdown-state-mixin');
+
 var MenuDropdown = React.createClass({
 
   mixins: [
@@ -7,16 +8,18 @@ var MenuDropdown = React.createClass({
   ],
 
   render() {
-    var title = _.find(this.props.children, (child) => {
+    var titles = this.props.children.filter((child) => {
       return child.type.displayName === 'MenuDropdownTitle';
     });
-    var content = _.find(this.props.children, (child) => {
+    var contents = this.props.children.filter((child) => {
       return child.type.displayName === 'MenuDropdownContent';
     });
-    if (!title || !content) {
+    if (!titles.length || !contents.length) {
       console.warn('You must have a MenuDropdownTitle and MenuDropdownContent inside of a MenuDropdown');
       return (<div/>);
     }
+    var title = titles[0];
+    var contents = contents[0];
     return (
       <li className="has-dropdown hover">
         <a onClick={this.onClick}>{title}</a>
